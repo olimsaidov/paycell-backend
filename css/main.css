@@ -1,0 +1,333 @@
+body {
+	margin: 0;
+	padding: 0;
+	color: #555;
+	font: normal 10pt Arial, Helvetica, sans-serif;
+	background: #EFEFEF;
+}
+
+#page {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	background: white;
+	border: 1px solid #C9E0ED;
+}
+
+#header {
+	margin: 0;
+	padding: 0;
+}
+
+#header table, #header hr {
+	margin: 0;
+}
+
+#header table {
+	line-height: 0.8em;
+}
+
+#content {
+	padding: 20px;
+}
+
+#footer {
+	padding: 10px;
+	margin: 10px 20px;
+	font-size: 0.8em;
+	text-align: center;
+	border-top: 1px solid #C9E0ED;
+}
+
+#logo {
+	padding: 10px 20px;
+	font-size: 200%;
+	float: left;
+}
+
+#userinfo {
+	padding: 5px 20px;
+	float: right;
+	width: 400px;
+}
+
+#mainmenu {
+	background: white url(../images/bg.gif) repeat-x left top;
+}
+
+#mainmenu ul {
+	padding: 4px 20px 5px;
+	margin: 0px;
+}
+
+#mainmenu ul li {
+	display: inline;
+}
+
+#mainmenu ul li a {
+	color: #ffffff;
+	background-color: transparent;
+	font-size: 12px;
+	font-weight: bold;
+	text-decoration: none;
+	padding: 5px 8px;
+}
+
+#mainmenu ul li a:hover,#mainmenu ul li a.active {
+	color: #6399cd;
+	background-color: #EFF4FA;
+	text-decoration: none;
+}
+
+div.error,div.notice,.success {
+	padding: .8em;
+	margin-bottom: 1em;
+	border: 2px solid #ddd;
+}
+
+div.error {
+	background: #FBE3E4;
+	color: #8a1f11;
+	border-color: #FBC2C4;
+}
+
+div.notice {
+	background: #FFF6BF;
+	color: #514721;
+	border-color: #FFD324;
+}
+
+div.success {
+	background: #E6EFC2;
+	color: #264409;
+	border-color: #C6D880;
+}
+
+div.error a {
+	color: #8a1f11;
+}
+
+div.notice a {
+	color: #514721;
+}
+
+div.success a {
+	color: #264409;
+}
+
+div.form .rememberMe label {
+	display: inline;
+}
+
+.actions {
+	margin: 0 0 10px 0;
+	padding: 0;
+}
+
+.actions li {
+	display: inline;
+	margin: 0;
+	padding: 0;
+}
+
+.actions li a {
+	padding: 5px;
+	margin: 0;
+	color: #298dcd;
+	text-decoration: none;
+	font-size: 0.8em;
+	font-weight: bold;
+	background: #DFF4FF;
+	border-left: 5px solid #589FC8;
+}
+
+.actions li a:hover,.actions li a.active {
+	background: #589FC8;
+	color: white;
+}
+
+div.view {
+	padding: 10px;
+	margin: 10px 0;
+	border: 1px solid #C9E0ED;
+}
+
+div.breadcrumbs {
+	font-size: 0.9em;
+	padding: 5px 20px;
+}
+
+div.breadcrumbs span {
+	font-weight: bold;
+}
+
+#firmLogo {
+	display: block;
+	margin: 10px auto;
+}
+
+table.list {
+	border-collapse: collapse;
+}
+
+table.list a {
+	text-decoration: none;
+	color: #000099
+}
+
+table.list th{
+	border: 1px solid #C9E0ED;
+	background: url("../images/bg.gif") repeat-x;
+	color: #FFF;
+}
+
+table.list td {
+	border: 1px solid #C9E0ED;
+}
+
+div.submenu {
+	overflow: hidden;
+	margin-bottom: 0.5em;
+}
+
+div.submenu ul {
+	padding: 0;
+}
+
+div.submenu li {
+	float: left;
+	list-style: none;
+	padding-right: 10px;
+	border-right: 1px solid #AAA;
+	margin-right: 10px;
+}
+
+.memo label {
+	vertical-align: top;
+}
+
+.tinymce {
+	padding-bottom: 1em;
+}
+
+fieldset.extended-info input {
+	width: 200pt;
+}
+
+fieldset.extended-info textarea {
+	width: 200pt;
+	height: 100pt;
+}
+
+a.edit_user {
+	background: url(../images/user_edit.png) no-repeat center center;
+	float: left;
+	height: 20px;
+	width: 20px;
+	margin-left: 5px;
+}
+
+a.delete_user {
+	background: url(../images/user_delete.png) no-repeat center center;
+	float: left;
+	height: 20px;
+	width: 20px;
+	margin-left: 5px;
+}
+
+a.enable_user {
+	background: url(../images/accept.png) no-repeat center center;
+	float: left;
+	height: 20px;
+	width: 20px;
+	margin-left: 5px;
+}
+
+a.disable_user {
+	background: url(../images/delete.png) no-repeat center center;
+	float: left;
+	height: 20px;
+	width: 20px;
+	margin-left: 5px;
+}
+
+a.delete_paynet {
+	background: url(../images/lock_delete.png) no-repeat center center;
+	float: left;
+	height: 20px;
+	width: 20px;
+	margin-left: 5px;
+}
+
+a.edit_paynet {
+	background: url(../images/lock_edit.png) no-repeat center center;
+	float: left;
+	height: 20px;
+	width: 20px;
+	margin-left: 5px;
+}
+
+a.enrich_user {
+	background: url(../images/coins_add.png) no-repeat center center;
+	float: left;
+	height: 20px;
+	width: 20px;
+	margin-left: 5px;
+}
+
+a.cancel_transfer {
+	background: url(../images/cancel.png) no-repeat center center;
+	float: left;
+	height: 20px;
+	width: 20px;
+	margin-left: 15px;
+}
+
+a.administrator_link {
+	background: url(../images/star.png) no-repeat left center;
+	padding-left: 20px;
+}
+
+a.terminal_link {
+	background: url(../images/monitor.png) no-repeat left center;
+	padding-left: 20px;
+}
+
+a.dealer_link {
+	background: url(../images/user_orange.png) no-repeat left center;
+	padding-left: 20px;
+}
+
+a.distributor_link {
+	background: url(../images/user_gray.png) no-repeat left center;
+	padding-left: 20px;
+}
+
+.news {
+	/*padding-bottom: 10px;*/
+	margin-bottom: 10px;
+	/*border-bottom: 1px solid #DDD;*/
+}
+
+.news .date {
+	color: #AAA;
+	font-size: 0.8em;
+	margin-bottom: 3px;
+}
+
+.news h4 {
+	margin-bottom: 5px;
+	border-bottom: 1px solid #C9E0ED;
+	padding-bottom: 2px;
+}
+
+.news .links {
+	text-align: right;
+}
+
+table.details td {
+	vertical-align: top;
+}
+
+#ui-datepicker-div .ui-state-highlight, #ui-datepicker-div .ui-widget-content .ui-state-highlight {
+	background: #FF6666;
+}

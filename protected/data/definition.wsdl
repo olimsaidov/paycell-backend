@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/"
+			 xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+			 targetNamespace="http://paycell.uz"
+			 xmlns:tns="http://paycell.uz"
+			 xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+			 xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+			 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+			 xmlns:xsd1="http://paycell.uz/schema">
+
+
+	<types>
+		<schema targetNamespace="http://paycell.uz/schema" xmlns="http://www.w3.org/2001/XMLSchema">
+			<element name="credHeader">
+				<complexType>
+					<sequence>
+						<element name="terminal" minOccurs="1" maxOccurs="1" type="int"/>
+						<element name="userName" minOccurs="1" maxOccurs="1" type="string"/>
+						<element name="password" minOccurs="1" maxOccurs="1" type="string"/>
+					</sequence>
+				</complexType>
+			</element>
+
+			<complexType name="newsItem">
+				<sequence>
+					<element name="id" minOccurs="1" maxOccurs="1" type="int"/>
+					<element name="title" minOccurs="1" maxOccurs="1" type="string"/>
+					<element name="text" minOccurs="1" maxOccurs="1" type="string"/>
+					<element name="dateTime" minOccurs="1" maxOccurs="1" type="dateTime"/>
+				</sequence>
+			</complexType>
+
+			<complexType name="newsArray">
+				<complexContent>
+					<restriction base="soapenc:Array">
+						<attribute ref="soapenc:arrayType" wsdl:arrayType="xsd1:newsItem[]"/>
+					</restriction>
+				</complexContent>
+			</complexType>
+
+			<complexType name="serviceItem">
+				<sequence>
+					<element name="id" minOccurs="1" maxOccurs="1" type="int"/>
+					<element name="name" minOccurs="1" maxOccurs="1" type="string"/>
+					<element name="company" minOccurs="1" maxOccurs="1" type="string"/>
+					<element name="prefix" minOccurs="1" maxOccurs="1" type="string"/>
+				</sequence>
+			</complexType>
+
+			<complexType name="serviceArray">
+				<complexContent>
+					<restriction base="soapenc:Array">
+						<attribute ref="soapenc:arrayType" wsdl:arrayType="xsd1:serviceItem[]"/>
+					</restriction>
+				</complexContent>
+			</complexType>
+
+			<complexType name="transactionStatus">
+				<sequence>
+					<element name="code" minOccurs="1" maxOccurs="1" type="int"/>
+					<!--<element name="message" minOccurs="1" maxOccurs="1" type="string"/>-->
+					<element name="dateTime" minOccurs="1" maxOccurs="1" type="dateTime"/>
+				</sequence>
+			</complexType>
+
+			<complexType name="transferMoneyStatus">
+				<sequence>
+					<element name="code" minOccurs="1" maxOccurs="1" type="int"/>
+					<element name="dateTime" minOccurs="1" maxOccurs="1" type="dateTime"/>
+				</sequence>
+			</complexType>
+		</schema>
+	</types>
+
+	<message name="credHeaderMessage">
+		<part name="credentials" element="xsd1:credHeader"/>
+	</message>
+
+	<message name="isAuthenticatedRequest">
+
+	</message>
+
+	<message name="isAuthenticatedResponse">
+		<part name="return" type="xsd:boolean"/>
+	</message>
+
+	<message name="checkDepositRequest">
+
+	</message>
+
+	<message name="checkDepositResponse">
+		<part name="return" type="xsd:double"/>
+	</message>
+
+	<message name="getNewsRequest">
+		<part name="lastNewsId" type="xsd:int"/>
+	</message>
+
+	<message name="getNewsResponse">
+		<part name="return" type="xsd1:newsArray"/>
+	</message>
+
+	<message name="getServicesRequest">
+
+	</message>
+
+	<message name="getServicesResponce">
+		<part name="return" type="xsd:string"/>
+	</message>
+
+	<message name="changePasswordRequest">
+		<part name="newPassword" type="xsd:string"/>
+	</message>
+
+	<message name="changePasswordResponse">
+		<part name="return" type="xsd:boolean"/>
+	</message>
+
+	<message name="payMobileOperatorRequest">
+		<part name="provider" type="xsd:int"/>
+		<part name="msisdn" type="xsd:string"/>
+		<part name="amount" type="xsd:int"/>
+		<part name="id" type="xsd:long"/>
+	</message>
+
+	<message name="payMobileOperatorResponse">
+		<part name="return" type="xsd1:transactionStatus"/>
+	</message>
+
+	<message name="getTransactionStatusRequest">
+		<part name="id" type="xsd:long"/>
+	</message>
+
+	<message name="getTransactionStatusResponse">
+		<part name="return" type="xsd1:transactionStatus"/>
+	</message>
+
+	<message name="transferMoneyRequest">
+		<part name="terminal" type="xsd:int"/>
+		<part name="amount" type="xsd:int"/>
+	</message>
+
+	<message name="transferMoneyResponse">
+		<part name="return" type="xsd1:transferMoneyStatus"/>
+	</message>
+
+	<message name="getPercentValueRequest">
+
+	</message>
+
+	<message name="getPercentValueResponse">
+		<part name="return" type="xsd:int"/>
+	</message>
+
+
+	<message name="annulateTransactionRequest">
+		<part name="id" type="xsd:long"/>
+	</message>
+
+	<message name="annulateTransactionResponse">
+		<part name="return" type="xsd1:transactionStatus"/>
+	</message>
+
+	<message name="getStatusCodesRequest">
+		
+	</message>
+
+	<message name="getStatusCodesResponse">
+		<part name="return" type="xsd:string"/>
+	</message>
+
+	<message name="getDollarCourseRequest">
+		
+	</message>
+	
+	<message name="getDollarCourseResponse">
+		<part name="return" type="xsd:string"/>
+	</message>
+
+	<portType name="paycellPortType">
+		<operation name="isAuthenticated">
+			<input message="tns:isAuthenticatedRequest"/>
+			<output message="tns:isAuthenticatedResponse"/>
+		</operation>
+		<operation name="checkDeposit">
+			<input message="tns:checkDepositRequest"/>
+			<output message="tns:checkDepositResponse"/>
+		</operation>
+		<operation name="getNews">
+			<input message="tns:getNewsRequest"/>
+			<output message="tns:getNewsResponse"/>
+		</operation>
+		<operation name="getServices">
+			<input message="tns:getServicesRequest"/>
+			<output message="tns:getServicesResponce"/>
+		</operation>
+		<operation name="changePassword">
+			<input message="tns:changePasswordRequest"/>
+			<output message="tns:changePasswordResponse"/>
+		</operation>
+		<operation name="payMobileOperator">
+			<input message="tns:payMobileOperatorRequest"/>
+			<output message="tns:payMobileOperatorResponse"/>
+		</operation>
+		<operation name="getTransactionStatus">
+			<input message="tns:getTransactionStatusRequest"/>
+			<output message="tns:getTransactionStatusResponse"/>
+		</operation>
+		<operation name="transferMoney">
+			<input message="tns:transferMoneyRequest"/>
+			<output message="tns:transferMoneyResponse"/>
+		</operation>
+		<operation name="getPercentValue">
+			<input message="tns:getPercentValueRequest"/>
+			<output message="tns:getPercentValueResponse"/>
+		</operation>
+		<operation name="annulateTransaction">
+			<input message="tns:annulateTransactionRequest"/>
+			<output message="tns:annulateTransactionResponse"/>
+		</operation>
+		<operation name="getStatusCodes">
+			<input message="tns:getStatusCodesRequest"/>
+			<output message="tns:getStatusCodesResponse"/>
+		</operation>
+		<operation name="getDollarCourse">
+			<input message="tns:getDollarCourseRequest"/>
+			<output message="tns:getDollarCourseResponse"/>
+		</operation>
+	</portType>
+
+	<binding name="paycellBinding" type="tns:paycellPortType">
+		<soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="isAuthenticated">
+			<soap:operation soapAction="http://paycell.uz/isAuthenticated"/>
+			<input>
+				<soap:body use="encoded" namespace="http://paycell.uz" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+				<soap:header use="literal" namespace="http://paycell.uz/schema" message="tns:credHeaderMessage" part="credentials" />
+			</input>
+			<output>
+				<soap:body use="encoded" namespace="http://paycell.uz" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+			</output>
+		</operation>
+		<operation name="getTransactionStatus">
+			<soap:operation soapAction="http://paycell.uz/getTransactionStatus"/>
+			<input>
+				<soap:body use="encoded" namespace="http://paycell.uz" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+				<soap:header use="literal" namespace="http://paycell.uz/schema" message="tns:credHeaderMessage" part="credentials" />
+			</input>
+			<output>
+				<soap:body use="encoded" namespace="http://paycell.uz" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+			</output>
+		</operation>
+		<operation name="checkDeposit">
+			<soap:operation soapAction="http://paycell.uz/checkDeposite"/>
+			<input>
+				<soap:body use="encoded" namespace="http://paycell.uz" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+				<soap:header use="literal" namespace="http://paycell.uz/schema" message="tns:credHeaderMessage" part="credentials" />
+			</input>
+			<output>
+				<soap:body use="encoded" namespace="http://paycell.uz" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+			</output>
+		</operation>
+		<operation name="getNews">
+			<soap:operation soapAction="http://paycell.uz/getNews"/>
+			<input>
+				<soap:body use="encoded" namespace="http://paycell.uz" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+				<soap:header use="literal" namespace="http://paycell.uz/schema" message="tns:credHeaderMessage" part="credentials" />
+			</input>
+			<output>
+				<soap:body use="encoded" namespace="http://paycell.uz" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+			</output>
+		</operation>
+		<operation name="getServices">
+			<soap:operation soapAction="http://paycell.uz/getServices"/>
+			<input>
+				<soap:body use="encoded" namespace="http://paycell.uz" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+				<soap:header use="literal" namespace="http://paycell.uz/schema" message="tns:credHeaderMessage" part="credentials" />
+			</input>
+			<output>
+				<soap:body use="encoded" namespace="http://paycell.uz" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+			</output>
+		</operation>
+		<operation name="changePassword">
+			<soap:operation soapAction="http://paycell.uz/changePassword"/>
+			<input>
+				<soap:body use="encoded" namespace="http://paycell.uz" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+				<soap:header use="literal" namespace="http://paycell.uz/schema" message="tns:credHeaderMessage" part="credentials" />
+			</input>
+			<output>
+				<soap:body use="encoded" namespace="http://paycell.uz" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+			</output>
+		</operation>
+		<operation name="payMobileOperator">
+			<soap:operation soapAction="http://paycell.uz/payMobileOperator"/>
+			<input>
+				<soap:body use="encoded" namespace="http://paycell.uz" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+				<soap:header use="literal" namespace="http://paycell.uz/schema" message="tns:credHeaderMessage" part="credentials" />
+			</input>
+			<output>
+				<soap:body use="encoded" namespace="http://paycell.uz" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+			</output>
+		</operation>
+		<operation name="transferMoney">
+			<soap:operation soapAction="http://paycell.uz/transferMoney"/>
+			<input>
+				<soap:body use="encoded" namespace="http://paycell.uz" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+				<soap:header use="literal" namespace="http://paycell.uz/schema" message="tns:credHeaderMessage" part="credentials" />
+			</input>
+			<output>
+				<soap:body use="encoded" namespace="http://paycell.uz" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+			</output>
+		</operation>
+		<operation name="getPercentValue">
+			<soap:operation soapAction="http://paycell.uz/getPercentValue"/>
+			<input>
+				<soap:body use="encoded" namespace="http://paycell.uz" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+				<soap:header use="literal" namespace="http://paycell.uz/schema" message="tns:credHeaderMessage" part="credentials" />
+			</input>
+			<output>
+				<soap:body use="encoded" namespace="http://paycell.uz" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+			</output>
+		</operation>
+		<operation name="annulateTransaction">
+			<soap:operation soapAction="http://paycell.uz/annulateTransaction"/>
+			<input>
+				<soap:body use="encoded" namespace="http://paycell.uz" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+				<soap:header use="literal" namespace="http://paycell.uz/schema" message="tns:credHeaderMessage" part="credentials" />
+			</input>
+			<output>
+				<soap:body use="encoded" namespace="http://paycell.uz" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+			</output>
+		</operation>
+		<operation name="getStatusCodes">
+			<soap:operation soapAction="http://paycell.uz/getStatusCodes"/>
+			<input>
+				<soap:body use="encoded" namespace="http://paycell.uz" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+				<soap:header use="literal" namespace="http://paycell.uz/schema" message="tns:credHeaderMessage" part="credentials" />
+			</input>
+			<output>
+				<soap:body use="encoded" namespace="http://paycell.uz" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+			</output>
+		</operation>
+		<operation name="getDollarCourse">
+			<soap:operation soapAction="http://paycell.uz/getDollarCourse"/>
+			<input>
+				<soap:body use="encoded" namespace="http://paycell.uz" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+				<soap:header use="literal" namespace="http://paycell.uz/schema" message="tns:credHeaderMessage" part="credentials" />
+			</input>
+			<output>
+				<soap:body use="encoded" namespace="http://paycell.uz" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+			</output>
+		</operation>
+	</binding>
+
+	<service name="PayCellService">
+		<port name="MainPort" binding="tns:paycellBinding">
+			<soap:address location="https://pay-cell.co.cc/soap/"/>
+		</port>
+	</service>
+
+</definitions>

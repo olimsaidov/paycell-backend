@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<statuses>
+	<status code="0">Проплачен</status>
+	<status code="-2">Отправляется</status>
+	<status code="-1">В обработке</status>
+	<status code="1">Оплата не произведена</status>
+	<!--<status code="2">Отменен</status>-->
+	<status code="3">Номер не найден</status>
+	<status code="4">Недостаточно депозита</status>
+	<status code="5">Провайдер не доступен</status>
+	<status code="6">Ошибка системы</status>
+	<!--<status code="7">Внешняя ошибка системы</status>-->
+	<!--<status code="9">Ошибка аннулирования</status>-->
+	<status code="10">Ведутся профилактические работы</status>
+	<status code="11">Неправильная сумма</status>
+	<status code="12">Терминал не существует</status>
+	<status code="13">Доступ запрещен</status>
+</statuses>

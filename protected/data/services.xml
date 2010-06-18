@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<services>
+	<service id="1" type="mobile">
+		<title>МТС</title>
+		<codes>
+			<code value="99866" maxChars="7">Самарканд 66</code>
+			<code value="99897" maxChars="7">Ташкент 97</code>
+			<code value="99892" maxChars="7">Тариф RED 92</code>
+			<code value="9987061" maxChars="5">Алмалык 7061</code>
+			<code value="99874" maxChars="7">Андижан 74</code>
+			<code value="9987066" maxChars="5">Ангрен 7066</code>
+			<code value="9987091" maxChars="5">Бекабад 7091</code>
+			<code value="99865" maxChars="7">Бухара 65</code>
+			<code value="998672" maxChars="6">Гулистан 672</code>
+			<code value="99872" maxChars="7">Джизак 72</code>
+			<code value="99875" maxChars="7">Кашкадарья 75</code>
+			<code value="99879" maxChars="7">Навои 79</code>
+			<code value="99869" maxChars="7">Наманган 69</code>
+			<code value="99861" maxChars="7">Нукус 61</code>
+			<code value="99876" maxChars="7">Сурхандарья 76</code>
+			<code value="99873" maxChars="7">Фергана 73</code>
+			<code value="99862" maxChars="7">Хорезм 62</code>
+			<code value="9987071" maxChars="5">Чирчик 7071</code>
+			<code value="9987060" maxChars="5">Янгиюль 7060</code>
+			<code value="9987053" maxChars="5">Янгиюль 7053</code>
+		</codes>
+	</service>
+	<service id="2" type="mobile">
+		<title>Билайн</title>
+		<codes>
+			<code value="99890" maxChars="7">Билайн 90</code>
+			<code value="99891" maxChars="7">Билайн 91</code>
+		</codes>
+	</service>
+	<service id="3" type="mobile">
+		<title>UCell</title>
+		<codes>
+			<code value="99893" maxChars="7">UCell 93</code>
+			<code value="99894" maxChars="7">UCell 94</code>
+		</codes>
+	</service>
+	<service id="4" type="mobile">
+		<title>Perfectum Mobile</title>
+		<codes>
+			<code value="99898" maxChars="7">Perfectum Mobile 98</code>
+		</codes>
+	</service>
+	<service id="5" type="mobile">
+		<title>UZMobile</title>
+		<codes>
+			<code value="99895" maxChars="7">UZMobile 95</code>
+		</codes>
+	</service>
+	<service id="6" type="additional">
+		<title>PayCell</title>
+	</service>
+</services>
